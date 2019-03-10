@@ -12,8 +12,7 @@ import org.testng.annotations.Test;
 public class Topic_01_CheckEnvironment {
 	WebDriver driver;
 
-	
-	@BeforeTest
+  @BeforeTest
 	  public void beforeTest() {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -29,12 +28,24 @@ public class Topic_01_CheckEnvironment {
 	  }
   
   @Test
-  public void TC_01_CheckTitle() {
+  public void TC_02_CheckTitle() {
 	  String homePageTitle = driver.getTitle();
 	  Assert.assertEquals(homePageTitle, "Home page");
 	  }
   
-  //Chay cuoi cung
+  @Test
+  public void TC_03_CheckUrl() {
+	  String homePageUrl = driver.getCurrentUrl();
+	  Assert.assertEquals(homePageUrl, "http://live.guru99.com/");
+	  // Check notification Slack vs GitHub
+	  }
+  
+  @Test
+  public void TC_04_CheckTitle() {
+	  String homePageTitle = driver.getTitle();
+	  Assert.assertEquals(homePageTitle, "Home page");
+	  }
+  
   @AfterTest
   public void afterTest() {
 	  driver.quit();
